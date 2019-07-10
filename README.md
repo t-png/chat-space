@@ -26,20 +26,20 @@
 - belongs_to :user
 
 ##groupsテーブル
-|id|member|user_id|text|image|
-|--|------|-------|----|-----|
+|id|member|user_id|groups|
+|--|------|-------|------|
 |image|text||
 |text|text||
 |user|references|null: false, foreign_key: true|
 |group|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :group
-- belongs_to :user
+- has_many :tweets
+- has_many :comments
 
 ## usersテーブル
-|id|e-mail|password|nickname|
-|--|------|--------|--------|
+|id|e-mail|password|nickname|users|
+|--|------|--------|--------|-----|
 |password|string|null: false|
 |nickname|string|null: false|
 |nickname|string|index: true|
@@ -48,8 +48,8 @@
 - has_many :comments
 
 ## groups_usersテーブル
-|id|
-|--|
+|id|groups|users|
+|--|------|-----|
 |id|references|null: false, foreign_key: true|
 ### Association
 - has_many :users
