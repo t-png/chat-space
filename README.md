@@ -3,8 +3,8 @@
 ##messagesテーブル
 |column|type|option|
 |------|----|------|
-|image|text||
-|text|text||
+|image|string||
+|text|string||
 |user|references|null: false, foreign_key: true|
 |group|references|null: false, foreign_key: true|
 
@@ -13,13 +13,8 @@
 - belongs_to :user
 
 ##groupsテーブル
-|column|type|option|
+|group_name|references|null: false, foreign_key: true|
 |------|----|------|
-|image|text||
-|text|text||
-|user|references|null: false, foreign_key: true|
-|group|references|null: false, foreign_key: true|
-
 ### Association
 - has_many :messages
 - has_many :users, through: : groups_users
