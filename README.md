@@ -1,21 +1,8 @@
 # README
 
-
-
-
-## membersテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user|references|null: false, foreign_key: true|
-|group|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :group
-- belongs_to :user
-
 ##messagesテーブル
-|member|user_id|text|image|
-|------|-------|----|-----|
+|column|type|option|
+|------|----|------|
 |image|text||
 |text|text||
 |user|references|null: false, foreign_key: true|
@@ -26,33 +13,34 @@
 - belongs_to :user
 
 ##groupsテーブル
-|id|member|user_id|groups|
-|--|------|-------|------|
+|column|type|option|
+|------|----|------|
 |image|text||
 |text|text||
 |user|references|null: false, foreign_key: true|
 |group|references|null: false, foreign_key: true|
 
 ### Association
-- has_many :tweets
-- has_many :comments
+- has_many :messages
+- has_many :users, through: : groups_users
+- has_many :groups_users
 
 ## usersテーブル
-|id|e-mail|password|nickname|users|
-|--|------|--------|--------|-----|
-|password|string|null: false|
-|nickname|string|null: false|
-|nickname|string|index: true|
+|column|type|option|
+|------|----|------|
+|nickname|string|null: false,index: true|
 ### Association
-- has_many :tweets
-- has_many :comments
+- has_many :messages
+- has_many :groups, through: : groups_users
+- has_many :groups_users
 
 ## groups_usersテーブル
-|id|groups|users|
-|--|------|-----|
-|id|references|null: false, foreign_key: true|
+|column|type|option|
+|------|----|------|
+|group|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 ### Association
-- has_many :users
-- has_many :groups
+- belongs_to :users
+- belongs_to :groups
 
 
