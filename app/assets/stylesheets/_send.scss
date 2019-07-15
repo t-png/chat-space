@@ -1,0 +1,52 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  
+}
+
+.list {
+  background-color: #38AEF0;
+  color:#fafafa;
+  float: left;
+  font-size: 20px;
+  font-weight: bold;
+  height: 60px;
+  line-height: 60px;
+  list-style: none;
+  text-align: center;
+  width: 33%;
+}
+
+.list {
+  background-color: #fafafa;
+  color: #333333;
+  float: left;
+  font-weight: bold;
+  text-align: left;
+  width: 300px;
+  &--black1{height: 35px;
+    font-size: 20px;}
+}
+
+.sendcontents {
+  background-color:#f10d0d;
+  height: 100px;
+  margin: 0 auto;
+  padding-top: 60px;
+  width: calc(100vw-300px);
+  
+}
+

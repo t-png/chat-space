@@ -1,0 +1,44 @@
+.contents.row
+  = render partial: "main"
+  = render partial: "hedder"
+  = render partial: "send"
+  = render partial: "user"
+  = render partial: "group"
+  = render partial: "text"
+
+
+.wrapper
+  .popup_message
+    %p guru-puwosakuseisimasita
+  .side-groups
+    .side-haeder
+      = render
+      %p usernametest
+      .newgroupicon
+      .edituser
+    .side-group
+      = render
+      .group
+        .groupname
+          %p testgroup
+          %p nomassege
+  .mainmessage
+    .mainheader
+      = render
+      .groupname
+        %p testgroup
+      .groupmember
+        %p testgroupmember
+      .editbotton
+        %p EDIT
+    .messages
+      = render
+      .username
+        %p testuser
+      .messagedate
+        %p 2019/7/15
+      .message
+        %p testmessage
+    .form
+      = render
+     

@@ -1,5 +1,7 @@
 # README
 
+
+
 ##messagesテーブル
 |column|type|option|
 |------|----|------|
