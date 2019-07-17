@@ -2,7 +2,7 @@
   width: calc(100% - 300px);
   .formgroup {
     background-color: #DDDDDD;
-    box-sizing: border-box;
+    float: left;
     height: 90px;
     padding: 20px 50px 20px 40px;
     &__message {
