@@ -1,11 +1,12 @@
 $(function(){
   function buildHTML(message){
-    var html = 
+    $formObject.reset();
+  var html = 
     `<div class="message">
     <div class="upper-message">
-      <div class="upper-message__user-name">
-        "${message.user_name}"
-      </div>
+    <div class="upper-message__user-name">
+      "${message.user_name}"
+    </div>
       <div class="upper-message__date">
         ${message.date}
       </div>
@@ -13,11 +14,10 @@ $(function(){
     <div class="lower-message">
         <p class="lower-message__content">
           ${message.text}
-        </p>
-        
+        </p>        
     </div>
   </div>`
-    return html;
+  return html;
   }
   $('#new_message').on('submit', function(e){
     e.preventDefault();
@@ -33,7 +33,6 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-      
       var html = buildHTML(data);
       $('.messages').append(html);
       $('.textbox').val('');
