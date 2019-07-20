@@ -1,6 +1,5 @@
 $(function(){
   function buildHTML(message){
-    $formObject.reset();
   var html = 
     `<div class="message">
     <div class="upper-message">
@@ -35,7 +34,7 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.messages').append(html);
-      $('.textbox').val('');
+      $('.textbox')[0].reset();
       $('.form__submit').prop('disabled', false);
     })
     .fail(function(){
