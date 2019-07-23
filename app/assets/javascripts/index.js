@@ -1,7 +1,6 @@
 $(function(){
   var search_list = $("#user-search-result");
   function appendUser(user){
-    console.log(user);
   var html =
     `<div class="chat-group-user clearfix">
       <p class="chat-group-user__name">${user.user_name} </p>
@@ -12,7 +11,6 @@ $(function(){
 
   $("#user-search-field").on("keyup", function() {
     var input = $("#user-search-field").val();
-    console.log(input);
     $.ajax({
       type: 'GET',
       url: '/users',
@@ -38,9 +36,8 @@ $(function(){
   $('#user-search-result').on('click', '.chat-group-user__btn', function(){
   var search_list = $("#chat-group-users");
   console.log(this);
-  var user_name = $(this).attr('data-user-name');
-  var user_id = $(this).attr('data-user-id');
-    console.log(user_id);
+  var user_name = $(this).data('user-name');
+  var user_id = $(this).data('user-id');
   var html =
   `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
   <input name='group[user_ids][]' type='hidden' value='${user_id}'>
