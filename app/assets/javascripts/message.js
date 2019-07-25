@@ -2,7 +2,7 @@ $(function(){
   function buildHTML(message){
   var MessageImage  = (message.img) ?  `img class="lower-message__image" src="${message.img}"` : ``
   var html =
-    `<div class="message">
+    `<div class="message" data-id = "${message.id}">
     <div class="upper-message">
     <div class="upper-message__user-name">
       "${message.user_name}"
@@ -41,6 +41,26 @@ $(function(){
     })
     .fail(function(){
       alert('error');
+    });
+  });
+
+  var reloadMessages = function() {
+    last_message_id = $('.message').last().data('id');
+    $.ajax({
+      url: 'api/messages',
+      type: 'get',
+      dataType: 'json',
+      data: {id: last_message_id}
     })
-  })
+    .done(function(messages) {
+    var insertHTML = '';
+    messages.forEach(function(message){
+      var html = buildHTML(message);
+      $('.messages').append(html);
+    })
+    })
+    .fail(function(){
+    })
+  };
+    setInterval(reloadMessages, 5000);
 });
