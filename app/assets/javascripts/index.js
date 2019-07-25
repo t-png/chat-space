@@ -35,7 +35,6 @@ $(function(){
 
   $('#user-search-result').on('click', '.chat-group-user__btn', function(){
   var search_list = $("#chat-group-users");
-  console.log(this);
   var user_name = $(this).data('user-name');
   var user_id = $(this).data('user-id');
   var html =
