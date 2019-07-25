@@ -28,7 +28,7 @@ $(function(){
         appendUser("一致するユーザーは見つかりません");
       }
     })
-    .fail(function() {
+    .fail(function(users) {
       alert('検索に失敗しました');
     })
   });
