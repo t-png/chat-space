@@ -5,7 +5,7 @@ $(function(){
     `<div class="message" data-id = "${message.id}">
     <div class="upper-message">
     <div class="upper-message__user-name">
-      "${message.user_name}"
+      ${message.user_name}
     </div>
       <div class="upper-message__date">
         ${message.date}
@@ -37,7 +37,9 @@ $(function(){
       var html = buildHTML(data);
       $('.messages').append(html);
       $('.new_message')[0].reset();
-      $('.form__submit').prop('disabled', false);
+      // $('.form__submit').prop('disabled', false);
+      $('.form__submit').removeAttr('disabled');
+      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
     })
     .fail(function(){
       alert('error');
@@ -62,5 +64,5 @@ $(function(){
     .fail(function(){
     })
   };
-    setInterval(reloadMessages, 5000);
+    // setInterval(reloadMessages, 5000);
 });

@@ -1,6 +1,6 @@
 .popup-message
-  .message
-    グループを作成しました
+  -# .message
+  -#   グループを作成しました
 .wrapper
 
   = render 'side_bar'
@@ -9,15 +9,14 @@
     .header
       .left-header
         .left-header__title
-          グループ名
+          = @group.name
+          -# ここに今いるグループの名前を表示させなければならない。
         %ul.left-header__members
           Member：
           %li.member
-            メンバー名
-          %li.member
-            メンバー名
-          %li.member
-            メンバー名
+            -@group.group_users.each do |group_user|
+              =group_user.user.name
+              -# アソシエーション使う
       .right-header
         .right-header__button
           =link_to edit_group_path(@group.id) do

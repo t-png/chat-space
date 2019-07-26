@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function() {
   var search_list = $("#user-search-result");
   function appendUser(user){
   var html =
@@ -7,6 +7,12 @@ $(function(){
       <div class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.user_id} " data-user-name="${user.user_name}">追加</div>
     </div>`  
   search_list.append(html);
+  }
+  function appenderoor(user){
+    var html = `<li>
+    <div class="chat-group-user clearfix">${ user }</div>
+    </li>
+    return html;`
   }
 
   $("#user-search-field").on("keyup", function() {
@@ -25,7 +31,7 @@ $(function(){
         });
       }
       else {
-        appendUser("一致するユーザーは見つかりません");
+        appenderoor("一致するユーザーは見つかりません");
       }
     })
     .fail(function(users) {
